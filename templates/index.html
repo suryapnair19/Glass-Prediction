@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glass Prediction App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            text-align: center;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Glass Type Prediction</h1>
+    </header>
+    
+    <div class="container">
+        <h2>Enter the Glass Properties</h2>
+        
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="RI">Refractive Index (RI):</label>
+                <input type="number" step="any" id="RI" name="RI" required>
+            </div>
+            <div class="form-group">
+                <label for="Na">Sodium (Na):</label>
+                <input type="number" step="any" id="Na" name="Na" required>
+            </div>
+            <div class="form-group">
+                <label for="Mg">Magnesium (Mg):</label>
+                <input type="number" step="any" id="Mg" name="Mg" required>
+            </div>
+            <div class="form-group">
+                <label for="Al">Aluminum (Al):</label>
+                <input type="number" step="any" id="Al" name="Al" required>
+            </div>
+            <div class="form-group">
+                <label for="Si">Silicon (Si):</label>
+                <input type="number" step="any" id="Si" name="Si" required>
+            </div>
+            <div class="form-group">
+                <label for="K">Potassium (K):</label>
+                <input type="number" step="any" id="K" name="K" required>
+            </div>
+            <div class="form-group">
+                <label for="Ca">Calcium (Ca):</label>
+                <input type="number" step="any" id="Ca" name="Ca" required>
+            </div>
+            <div class="form-group">
+                <label for="Ba">Barium (Ba):</label>
+                <input type="number" step="any" id="Ba" name="Ba" required>
+            </div>
+            <div class="form-group">
+                <label for="Fe">Iron (Fe):</label>
+                <input type="number" step="any" id="Fe" name="Fe" required>
+            </div>
+            <button type="submit" class="btn">Predict Glass Type</button>
+        </form>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
