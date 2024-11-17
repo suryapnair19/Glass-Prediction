@@ -5,7 +5,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Load the trained model
-model = pickle.load(open('random_forest_model.pkl', 'rb'))
+model = pickle.load(open('modelpro.pkl', 'rb'))
 # Glass types corresponding to class numbers
 glass_types = {
     1: 'Building Windows Float Processed',
